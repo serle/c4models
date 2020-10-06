@@ -1,0 +1,20 @@
+{
+  "name": "c4model",
+  "version": "1.0.0",
+  "description": "System Design Assignment",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc index.ts",
+    "start": "tsc index.ts && node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tslib": "^2.0.1",
+    "structurizr-typescript": "1.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.2",
+    "typescript": "^3.7.3"
+  }
+}
