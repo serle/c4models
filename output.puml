@@ -1,0 +1,31 @@
+@startuml
+title Asset Management System - System Context
+caption The system context view for the monkey factory
+actor "Admin" <<Person>> as 2
+component "Asset Management System" <<Software System>> as 4
+component "CRM system" <<Software System>> as 10
+actor "User" <<Person>> as 1
+2 ..> 4 : configure users
+2 ..> 10 : work on tickets
+2 ..> 1 : manages rights
+4 ..> 10 : Create tickets <<AMQP>>
+1 ..> 4 : view dashboards
+@enduml
+
+@startuml
+title Asset Management System - Containers
+caption Container view for the monkey factory
+actor "Admin" <<Person>> as 2
+component "CRM system" <<Software System>> as 10
+actor "User" <<Person>> as 1
+package "Asset Management System" {
+  component "frontend" <<Container>> as 7
+  component "ingress" <<Container>> as 5
+  component "storage" <<Container>> as 6
+}
+2 ..> 10 : work on tickets
+2 ..> 1 : manages rights
+7 ..> 6 : load telemetry data <<Table Storage SDK>>
+5 ..> 6 : store telemetry <<IoT Hub routing>>
+@enduml
+
